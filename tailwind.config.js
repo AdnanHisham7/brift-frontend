@@ -4,38 +4,47 @@ export default {
   theme: {
     extend: {
       colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+
         primary: {
-          DEFAULT: "#2872A1",
-          hover: "#1F5F86",
-          active: "#194E70",
-          muted: "#A9C5D8",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
+
         secondary: {
-          DEFAULT: "#4FA3D1",
-          hover: "#3C8EBB",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
-        accent: "#2EC4B6",
-        "accent-soft": "#E6F7F5",
-        background: "#F5F9FC",
-        surface: "#FFFFFF",
-        "elevated-surface": "#F0F6FB",
-        border: {
-          DEFAULT: "#D6E2EC",
-          strong: "#B9CEDD",
+
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
-        text: {
-          primary: "#0F2A3D",
-          secondary: "#4A6A82",
-          muted: "#8BA3B5",
+
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
-        success: "#2EAD73",
-        "success-bg": "#E6F6EE",
-        warning: "#F4A261",
-        "warning-bg": "#FFF1E6",
-        error: "#E5533D",
-        "error-bg": "#FDECEA",
-        info: "#3A86C9",
-        "info-bg": "#EAF3FB",
+
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
       },
       fontFamily: {
         sans: [
@@ -49,69 +58,29 @@ export default {
           "Arial",
           "sans-serif",
         ],
-      },
-      fontSize: {
-        h1: ["40px", { lineHeight: "1.2", fontWeight: "700" }],
-        h2: ["32px", { lineHeight: "1.25", fontWeight: "600" }],
-        h3: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
-        h4: ["20px", { lineHeight: "1.35", fontWeight: "600" }],
-        h5: ["16px", { lineHeight: "1.4", fontWeight: "600" }],
-        h6: ["14px", { lineHeight: "1.45", fontWeight: "600" }],
-        "body-lg": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
-        body: ["14px", { lineHeight: "1.55", fontWeight: "400" }],
-        sm: ["12px", { lineHeight: "1.5", fontWeight: "400" }],
-        micro: ["11px", { lineHeight: "1.4", fontWeight: "400" }],
-      },
-      lineHeight: {
-        tight: "1.2",
-        snug: "1.35",
-        normal: "1.5",
-        relaxed: "1.6",
-      },
-      letterSpacing: {
-        heading: "-0.01em",
-        body: "0",
-        "button-label": "0.04em",
-        uppercase: "0.08em",
-      },
-      fontWeight: {
-        regular: "400",
-        medium: "500",
-        semibold: "600",
-        bold: "700",
-      },
-      spacing: {
-        xs: "4px",
-        sm: "8px",
-        "sm+": "12px",
-        md: "16px",
-        lg: "24px",
-        xl: "32px",
-        "2xl": "40px",
-        "3xl": "48px",
-        "4xl": "64px",
-      },
-      gap: {
-        compact: "8px",
-        tight: "12px",
-        normal: "16px",
-        loose: "24px",
-        spacious: "32px",
-      },
 
-      borderRadius: {
-        xs: "4px",
-        sm: "6px",
-        md: "8px",
-        lg: "12px",
-        xl: "16px",
-        full: "9999px",
-      },
-      boxShadow: {
-        card: "0 1px 2px rgba(15, 42, 61, 0.08)",
-        dropdown: "0 4px 12px rgba(15, 42, 61, 0.12)",
-        popover: "0 4px 12px rgba(15, 42, 61, 0.12)",
-        modal: "0 12px 32px rgba(15, 42, 61, 0.16)",
+        body: [
+          "Inter",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+        headline: [
+          "Inter",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
       },
     },
   },

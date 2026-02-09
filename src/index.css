@@ -6,3 +6,52 @@
 html, body {
   font-family: theme('fontFamily.sans');
 }
+
+@layer base {
+  :root {
+    --background: 210 20% 98%; /* Off-white #F9F9F9 approx */
+    --foreground: 220 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 10%;
+    --primary: 191 42% 74%; /* Soft light teal #A0CED9 */
+    --primary-foreground: 191 42% 10%;
+    --secondary: 48 67% 96%; /* Very light gold tint */
+    --secondary-foreground: 48 67% 20%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 48 70% 44%; /* Light gold #D4AC0D */
+    --accent-foreground: 48 70% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 191 42% 74%;
+    --radius: 1rem;
+    --sidebar-background: 210 20% 97%;
+    --sidebar-foreground: 220 10% 25%;
+    --sidebar-primary: 191 42% 74%;
+    --sidebar-primary-foreground: 191 42% 10%;
+    --sidebar-accent: 191 42% 90%;
+    --sidebar-accent-foreground: 191 42% 20%;
+    --sidebar-border: 210 20% 92%;
+    --sidebar-ring: 191 42% 74%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+}
