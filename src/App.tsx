@@ -5,6 +5,7 @@ import HubLayout from "@/pages/common/HubLayout";
 /* SUPERADMIN */
 import SuperAdminDashboard from "@/pages/superadmin/dashboard";
 import CompaniesManagement from "@/pages/superadmin/companies";
+import ModulesManagement from "@/pages/superadmin/modules";
 
 export default function AppRouter() {
   return (
@@ -17,6 +18,7 @@ export default function AppRouter() {
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<SuperAdminDashboard />} />
         <Route path="companies" element={<CompaniesManagement />} />
+        <Route path="modules" element={<ModulesManagement />} />
       </Route>
 
       {/* Fallback */}
