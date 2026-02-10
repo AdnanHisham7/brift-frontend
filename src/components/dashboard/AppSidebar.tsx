@@ -1,7 +1,4 @@
-import {
-  LayoutDashboard,
-  LogOut,
-} from "lucide-react";
+import { Building2, LayoutDashboard, LogOut } from "lucide-react";
 
 import {
   Sidebar,
@@ -28,6 +25,7 @@ interface SidebarItem {
 
 const SUPERADMIN_ITEMS: SidebarItem[] = [
   { title: "Dashboard", url: "/superadmin/dashboard", icon: LayoutDashboard },
+  { title: "Companies", url: "/superadmin/companies", icon: Building2 },
 ];
 
 export function AppSidebar() {

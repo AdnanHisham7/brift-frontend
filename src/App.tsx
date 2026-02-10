@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "@/pages/common/Login";
-import HubLayout from "./pages/common/HubLayout";
+import HubLayout from "@/pages/common/HubLayout";
 
 /* SUPERADMIN */
-import SuperAdminDashboard from "./pages/superadmin/dashboard";
+import SuperAdminDashboard from "@/pages/superadmin/dashboard";
+import CompaniesManagement from "@/pages/superadmin/companies";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
       <Route path="/superadmin" element={<HubLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<SuperAdminDashboard />} />
+        <Route path="companies" element={<CompaniesManagement />} />
       </Route>
 
       {/* Fallback */}
