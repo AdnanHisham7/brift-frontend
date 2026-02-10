@@ -8,6 +8,7 @@ import CompaniesManagement from "@/pages/superadmin/companies";
 import ModulesManagement from "@/pages/superadmin/modules";
 import SubscriptionsManagement from "@/pages/superadmin/subscriptions";
 import PaymentsManagement from "@/pages/superadmin/payments";
+import SystemUsersManagement from "@/pages/superadmin/users";
 
 export default function AppRouter() {
   return (
@@ -21,8 +22,9 @@ export default function AppRouter() {
         <Route path="dashboard" element={<SuperAdminDashboard />} />
         <Route path="companies" element={<CompaniesManagement />} />
         <Route path="modules" element={<ModulesManagement />} />
-        <Route path="subscriptions" element={<SubscriptionsManagement  />} />
+        <Route path="subscriptions" element={<SubscriptionsManagement />} />
         <Route path="payments" element={<PaymentsManagement />} />
+        <Route path="users" element={<SystemUsersManagement />} />
       </Route>
 
       {/* Fallback */}

@@ -5,6 +5,7 @@ import {
   LayoutDashboard,
   LogOut,
   Package,
+  Users,
 } from "lucide-react";
 
 import {
@@ -40,6 +41,7 @@ const SUPERADMIN_ITEMS: SidebarItem[] = [
     icon: CreditCard,
   },
   { title: "Payments", url: "/superadmin/payments", icon: BarChart3 },
+  { title: "System Users", url: "/superadmin/users", icon: Users },
 ];
 
 export function AppSidebar() {
