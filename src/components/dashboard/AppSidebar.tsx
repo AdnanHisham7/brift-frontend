@@ -2,6 +2,7 @@ import {
   BarChart3,
   Building2,
   CreditCard,
+  History,
   LayoutDashboard,
   LogOut,
   Package,
@@ -42,6 +43,7 @@ const SUPERADMIN_ITEMS: SidebarItem[] = [
   },
   { title: "Payments", url: "/superadmin/payments", icon: BarChart3 },
   { title: "System Users", url: "/superadmin/users", icon: Users },
+  { title: "Audit Logs", url: "/superadmin/audit", icon: History },
 ];
 
 export function AppSidebar() {

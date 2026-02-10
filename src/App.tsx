@@ -9,6 +9,7 @@ import ModulesManagement from "@/pages/superadmin/modules";
 import SubscriptionsManagement from "@/pages/superadmin/subscriptions";
 import PaymentsManagement from "@/pages/superadmin/payments";
 import SystemUsersManagement from "@/pages/superadmin/users";
+import AuditLogs from "@/pages/superadmin/audit";
 
 export default function AppRouter() {
   return (
@@ -25,6 +26,7 @@ export default function AppRouter() {
         <Route path="subscriptions" element={<SubscriptionsManagement />} />
         <Route path="payments" element={<PaymentsManagement />} />
         <Route path="users" element={<SystemUsersManagement />} />
+        <Route path="audit" element={<AuditLogs />} />
       </Route>
 
       {/* Fallback */}
