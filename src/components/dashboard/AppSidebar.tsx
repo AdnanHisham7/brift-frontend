@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   LogOut,
   Package,
+  Settings,
   Users,
 } from "lucide-react";
 
@@ -44,6 +45,7 @@ const SUPERADMIN_ITEMS: SidebarItem[] = [
   { title: "Payments", url: "/superadmin/payments", icon: BarChart3 },
   { title: "System Users", url: "/superadmin/users", icon: Users },
   { title: "Audit Logs", url: "/superadmin/audit", icon: History },
+  { title: "Settings", url: "/superadmin/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
