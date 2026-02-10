@@ -6,6 +6,7 @@ import HubLayout from "@/pages/common/HubLayout";
 import SuperAdminDashboard from "@/pages/superadmin/dashboard";
 import CompaniesManagement from "@/pages/superadmin/companies";
 import ModulesManagement from "@/pages/superadmin/modules";
+import SubscriptionsManagement from "@/pages/superadmin/subscriptions";
 
 export default function AppRouter() {
   return (
@@ -19,6 +20,7 @@ export default function AppRouter() {
         <Route path="dashboard" element={<SuperAdminDashboard />} />
         <Route path="companies" element={<CompaniesManagement />} />
         <Route path="modules" element={<ModulesManagement />} />
+        <Route path="subscriptions" element={<SubscriptionsManagement  />} />
       </Route>
 
       {/* Fallback */}

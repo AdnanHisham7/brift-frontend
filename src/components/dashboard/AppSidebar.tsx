@@ -1,4 +1,10 @@
-import { Building2, LayoutDashboard, LogOut, Package } from "lucide-react";
+import {
+  Building2,
+  CreditCard,
+  LayoutDashboard,
+  LogOut,
+  Package,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -27,6 +33,11 @@ const SUPERADMIN_ITEMS: SidebarItem[] = [
   { title: "Dashboard", url: "/superadmin/dashboard", icon: LayoutDashboard },
   { title: "Companies", url: "/superadmin/companies", icon: Building2 },
   { title: "Modules & Pricing", url: "/superadmin/modules", icon: Package },
+  {
+    title: "Subscriptions",
+    url: "/superadmin/subscriptions",
+    icon: CreditCard,
+  },
 ];
 
 export function AppSidebar() {
