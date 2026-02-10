@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "superadmin-avatar",
+      "description": "Professional profile picture for a super admin user",
+      "imageUrl": "https://picsum.photos/seed/brift1/200/200",
+      "imageHint": "professional avatar"
+    }
+  ]
+}
