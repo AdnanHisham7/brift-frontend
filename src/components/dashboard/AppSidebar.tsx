@@ -1,4 +1,5 @@
 import {
+  BarChart3,
   Building2,
   CreditCard,
   LayoutDashboard,
@@ -38,6 +39,7 @@ const SUPERADMIN_ITEMS: SidebarItem[] = [
     url: "/superadmin/subscriptions",
     icon: CreditCard,
   },
+  { title: "Payments", url: "/superadmin/payments", icon: BarChart3 },
 ];
 
 export function AppSidebar() {
