@@ -10,21 +10,49 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Label } from "@/components/ui/Label";
-import { Building2, LayoutDashboard, UserSquare2, LogIn } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { LayoutDashboard } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
+import { authService } from "@/services/auth.service";
+import { useAuth } from "@/context/AuthContext";
+import { toast } from "sonner";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = (role: string) => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      toast.error("Please enter email and password");
+      return;
+    }
+
     setLoading(true);
-    // Simulate auth logic
-    setTimeout(() => {
-      if (role === "superadmin") navigate("/superadmin/dashboard");
-      else if (role === "companyadmin") navigate("/company/dashboard");
-      else navigate("/client/dashboard");
-    }, 800);
+    try {
+      const response = await authService.login({ email, password });
+      login(response.data.token, response.data.user);
+      toast.success("Welcome back!");
+
+      // Route based on role
+      const role = response.data.user.role;
+      if (role === "SUPER_ADMIN") {
+        navigate("/superadmin/dashboard");
+      } else if (role === "COMPANY_ADMIN") {
+        navigate("/company/dashboard");
+      } else {
+        navigate("/client/dashboard");
+      }
+    } catch (err: any) {
+      const msg =
+        err?.response?.data?.message || "Login failed. Please try again.";
+      toast.error(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -41,33 +69,43 @@ export default function LoginPage() {
             Modern Construction Management Ecosystem
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4 px-8">
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm font-medium">
-              Email Address
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="admin@brift.com"
-              className="h-12 rounded-xl bg-background/50 border-muted"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              className="h-12 rounded-xl bg-background/50 border-muted"
-            />
-          </div>
-          <Button
-            className="w-full h-12 text-md font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 transition-all"
-            disabled={loading}
-          >
-            {loading ? "Authenticating..." : "Sign In"}
-          </Button>
-        </CardContent>
+        <form onSubmit={handleLogin}>
+          <CardContent className="space-y-4 px-8">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm font-medium">
+                Email Address
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="admin@brift.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="h-12 rounded-xl bg-background/50 border-muted"
+                autoComplete="email"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="h-12 rounded-xl bg-background/50 border-muted"
+                autoComplete="current-password"
+              />
+            </div>
+            <Button
+              type="submit"
+              className="w-full h-12 text-md font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 transition-all"
+              disabled={loading}
+            >
+              {loading ? "Authenticating..." : "Sign In"}
+            </Button>
+          </CardContent>
+        </form>
         <CardFooter className="flex flex-col space-y-4 pb-10 px-8">
           <div className="relative w-full">
             <div className="absolute inset-0 flex items-center">
@@ -75,42 +113,18 @@ export default function LoginPage() {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-transparent px-2 text-muted-foreground font-medium">
-                Demo Access
+                First time?
               </span>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-3 w-full">
+          <Link to="/setup" className="w-full">
             <Button
               variant="outline"
-              className="flex flex-col h-auto py-3 gap-1 rounded-xl bg-white/50 border-muted hover:border-primary/40 hover:bg-primary/5 group"
-              onClick={() => handleLogin("superadmin")}
+              className="w-full rounded-xl bg-white/50 border-muted hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
             >
-              <UserSquare2 className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              <span className="text-[10px] font-semibold text-muted-foreground">
-                SuperAdmin
-              </span>
+              Set up Super Admin
             </Button>
-            <Button
-              variant="outline"
-              className="flex flex-col h-auto py-3 gap-1 rounded-xl bg-white/50 border-muted hover:border-primary/40 hover:bg-primary/5 group"
-              onClick={() => handleLogin("companyadmin")}
-            >
-              <Building2 className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              <span className="text-[10px] font-semibold text-muted-foreground">
-                Company
-              </span>
-            </Button>
-            <Button
-              variant="outline"
-              className="flex flex-col h-auto py-3 gap-1 rounded-xl bg-white/50 border-muted hover:border-primary/40 hover:bg-primary/5 group"
-              onClick={() => handleLogin("client")}
-            >
-              <LogIn className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              <span className="text-[10px] font-semibold text-muted-foreground">
-                Client
-              </span>
-            </Button>
-          </div>
+          </Link>
         </CardFooter>
       </Card>
     </div>
